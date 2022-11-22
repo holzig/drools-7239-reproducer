@@ -9,8 +9,8 @@ import java.util.function.Function;
 import org.drools.compiler.compiler.io.memory.MemoryFileSystem;
 import org.drools.compiler.kie.builder.impl.KieBuilderImpl;
 import org.drools.model.Model;
-import org.drools.model.codegen.ExecutableModelProject;
-import org.drools.modelcompiler.KieBaseBuilder;
+import org.drools.modelcompiler.ExecutableModelProject;
+import org.drools.modelcompiler.builder.KieBaseBuilder;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -132,7 +132,7 @@ class DroolsModelTest {
                                                  .stream()
                                                  .filter(entry -> entry.getKey().endsWith(".class"))
                                                  .map(entry -> {
-                                                         String fileName = entry.getKey().asString();
+                                                         String fileName = entry.getKey();
 
                                                          String className = fileName.replace("/", ".")
                                                                                     .replace(".class", "");
